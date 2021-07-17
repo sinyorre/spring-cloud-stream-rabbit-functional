@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    username: admin
+    password: 123456
+  cloud:
+    stream:
+      bindings:
+        convertToUppercase-in-0:
+          destination: messageTopic
+        convertToUppercase-out-0:
+          destination: uppercaseMessageTopic
+        onReceive-in-0:
+          destination: uppercaseMessageTopic
+    function:
+      definition: convertToUppercase;onReceive
